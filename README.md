@@ -27,8 +27,6 @@ Para iniciar el sistema de manera correcta, es necesario abrir **tres ventanas d
    Ejecute el script interactivo del cliente para conectarse al servidor y utilizar el menú de opciones.
    `python3 cliente.py`
 
-*(Nota: Si desea conectar un cliente desde otra computadora en la misma red local, debe cambiar la variable `HOST = '0.0.0.0'` en el servidor y configurar la IP local de la máquina anfitriona en el script del cliente).*
-
 ---
 
 ## Respuestas del item 2
