@@ -13,7 +13,7 @@ Antes de ejecutar el código, asegúrese de tener la siguiente estructura de dir
 
 ## Instrucciones de Ejecución
 
-[cite_start]Para iniciar el sistema de manera correcta, es necesario abrir **tres ventanas de terminal separadas**[cite: 42]:
+Para iniciar el sistema de manera correcta, es necesario abrir **tres ventanas de terminal separadas**:
 
 1. **Terminal 1 (Servidor):**
    Navegue a la carpeta del proyecto y ejecute el servidor. Este quedará escuchando conexiones entrantes.
@@ -33,20 +33,20 @@ Antes de ejecutar el código, asegúrese de tener la siguiente estructura de dir
 
 ## Respuestas del item 2
 
-**1. [cite_start]¿Cómo evitó condiciones de carrera en el servidor?** [cite: 44]
+**1. ¿Cómo evitó condiciones de carrera en el servidor?**
 Se evitaron implementando un mecanismo de exclusión mutua mediante **Locks** (cerrojos) de la librería `threading` de Python. Se crearon dos candados lógicos (`log_lock` y `file_lock`). Al utilizar un bloque `with lock:`, se garantiza que cuando un hilo intenta escribir en el archivo `registro.log` o intenta mover un archivo de una carpeta a otra, ningún otro hilo pueda interferir hasta que la tarea termine y el cerrojo se libere
 
-**2. [cite_start]¿Qué ventajas tiene usar threads en lugar de procesos para este caso?** [cite: 45]
+**2. ¿Qué ventajas tiene usar threads en lugar de procesos para este caso?**
 Los hilos comparten el mismo espacio de memoria, lo que facilita enormemente compartir recursos globales como los objetos `Lock` sin recurrir a mecanismos complejos de comunicación entre procesos. Además, la creación de hilos consume muchos menos recursos del CPU y de la memoria RAM, lo cual es ideal para un servidor concurrente que pasa gran parte de su tiempo esperando operaciones de Entrada/Salida
 
-**3. [cite_start]Explique el método de sincronización elegido.** [cite: 46]
+**3. Explique el método de sincronización elegido.**
 Se eligió el **Lock (Mutex - Exclusión Mutua)** porque es el mecanismo más directo para proteger el acceso a un recurso único (como el archivo de registro). Al utilizar el contexto `with threading.Lock()`, el hilo en ejecución adquiere el cerrojo antes de la sección crítica y pone en espera a cualquier otro hilo que intente acceder. Una vez que termina la escritura, libera el cerrojo automáticamente, evitando corrupciones de datos e interbloqueos (deadlocks).
 
 ---
 
 ## Problemas, Inconvenientes y Soluciones
 
-[cite_start]Durante el desarrollo de esta actividad, se presentaron los siguientes retos técnicos:
+Durante el desarrollo de esta actividad, se presentaron los siguientes retos técnicos:
 
 * **Problema 1: Creación y edición de archivos directamente en la terminal sin entorno gráfico.**
   * *Solución:* aprendi a utilizar el editor de texto interactivo `nano` directamente en la línea de comandos de Linux, utilizando los atajos `Ctrl + O` para guardar los cambios y `Ctrl + X` para cerrar el entorno de manera segura.
