@@ -11,7 +11,7 @@ Antes de ejecutar el código, asegúrese de tener la siguiente estructura de dir
   - `procesados/`
   - `logs/`
 
-## 🚀 Instrucciones de Ejecución
+## Instrucciones de Ejecución
 
 [cite_start]Para iniciar el sistema de manera correcta, es necesario abrir **tres ventanas de terminal separadas**[cite: 42]:
 
